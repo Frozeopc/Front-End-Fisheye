@@ -1,23 +1,23 @@
 function mediaFactory(data) {
-    const {id, photographerId, title, image, likes, date, price} = data;
-    const  picture = `assets/photographers/${photographerId}/${image}`;
+    const { id, photographerId, title, image, video, likes, date, price } = data;
+    const picture = `assets/photographers/${photographerId}/${image}`;
+    const film = `assets/photographers/${photographerId}/${video}`;
     function getMediaCardDOM() {
-        const article = document.createElement( 'article' );
-        
-        
-        const img = document.createElement( 'img' );
-        img.setAttribute("src", picture);
-        const h2 = document.createElement( 'h2' );
-        const favor = document.createElement( 'p' )
-        h2.textContent = title;
-        favor.textContent = likes;
-        
-        
-        article.appendChild(img);
-        article.appendChild(h2);
-        article.appendChild(favor);
-        
-        return (article);
+        var html = `<article>`;
+        if (image) {
+            html += `<img class='media-image' src="${picture}"/>`;
+        } else {
+            html += `<video class='media-image' controls><source src="${film}"></video>`;
+        }
+        html += `<h2>${title}</h2>
+                <p class="nbLike">${likes}</p>
+                <span class="like-unlike unliked" onclick="likeUnlike(this)">
+                    <i class="fa-regular fa-heart heart"></i>
+                    <i class="fa-solid fa-heart heartFull"></i>
+                </span>
+            </article>`;
+        return (html);
     }
+
     return { getMediaCardDOM }
 }

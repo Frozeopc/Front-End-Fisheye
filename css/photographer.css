@@ -1,3 +1,7 @@
+#main {
+position: relative;
+
+}
 #contact_modal {
     display: none;
 }
@@ -22,6 +26,11 @@
     background-color: #901C1C;
     border-radius: 5px;
     cursor: pointer;
+}
+ /* css des images  */
+
+.media-image {
+    height: 100px;
 }
 
 .modal {
@@ -76,4 +85,24 @@ form input {
     height: 68px;
     border: none;
     border-radius: 5px;
+}
+.total-like {
+    position: fixed;
+    bottom: 0px;
+    right: 0px;
+    background-color: #901C1C;
+    padding: 15px;
+}
+
+.like-unlike{
+    text-transform: none;
+}
+
+.fa-heart{
+    height: 20px;
+    color:#901C1C;
+}
+
+.heartFull{
+    display: none;
 }

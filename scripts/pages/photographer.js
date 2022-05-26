@@ -1,53 +1,74 @@
 //Mettre le code JavaScript lié à la page photographer.html
 const urlParam = new URLSearchParams(window.location.search);
 const idPhotographer = urlParam.get('id');
-console.log(idPhotographer);
+const selector = document.getElementById('sort');
 
-async function getMediasByPhotographer(idPhotographer) {
-    
-    const response = await fetch("data/photographers.json");
-        var data = await response.json();
-        var medias = data.media;
-        var listMedias = medias.filter(d => d.photographerId === parseInt(idPhotographer));
-    console.log(listMedias);
-    return listMedias;
+
+selector.addEventListener('change', async function () {
+    const medias = await getMediasByPhotographer(idPhotographer, this.value)
+    displayDataMedias(medias)
+})
+
+function getSortBy(sortBy, datas) {
+    switch (sortBy) {
+        case 'date':
+            const sortByDate = datas.sort((a, b) => Date.parse(a.date) < Date.parse(b.date) ? 1 : -1);
+            return sortByDate;
+            break;
+        case 'likes':
+            const sortByLikes = datas.sort((a, b) => a.likes < b.likes ? 1 : -1)
+            return sortByLikes
+            break;
+        case 'title':
+            const sortByTitle = datas.sort((a, b) => a.title < b.title ? -1 : 1)
+            return sortByTitle
+            break;
+    }
 }
-async function getPhotographerById(idPhotographer) {
-    const response = await fetch("data/photographers.json");
-    var data = await response.json();
-    var listPhotographers = data.photographers;
-    var photographer = listPhotographers.filter(d => d.id === parseInt(idPhotographer));
-    console.log(photographer);
-    return photographer[0];
+
+
+
+
+
+//affiche des médias
+function displayDataMedias(medias) {
+    const mediasSection = document.querySelector(".medias_section");
+    const likeSection = document.querySelector(".total-like");
+    var html = '';
+    var totalLike = 0;
+    medias.forEach((media) => {
+        const mediaModel = mediaFactory(media);
+        const mediaCardDOM = mediaModel.getMediaCardDOM();
+
+        html += mediaCardDOM;
+        totalLike += media.likes;
+    });
+
+    mediasSection.innerHTML = html;
+    likeSection.innerHTML = totalLike;
+
 }
 
-
-
-
- function displayData(photographer,medias) {
+//affichage header photographer
+function displayDataPhotographer(photographer) {
 
     const photographerSection = document.querySelector(".photograph-header");
     const photographerModel = photographerFactory(photographer);
     console.log(photographerModel);
     const photographerCardDOM = photographerModel.getUserHeaderCardDOM();
     console.log(photographerCardDOM);
-    photographerSection.innerHTML+=(photographerCardDOM);
+    photographerSection.innerHTML += (photographerCardDOM);
 
 
-    const mediasSection = document.querySelector(".medias_section");
-    
-    medias.forEach((media) => {
-        const mediaModel = mediaFactory(media);
-        const mediaCardDOM = mediaModel.getMediaCardDOM();
-        mediasSection.appendChild(mediaCardDOM);
-    });
+
 }
 async function init(idPhotographer) {
     // Récupère les datas des photographes
     const photographer = await getPhotographerById(idPhotographer);
-    const medias = await getMediasByPhotographer(idPhotographer);
+    const medias = await getMediasByPhotographer(idPhotographer, 'likes');
     console.log(medias);
-    displayData(photographer,medias);
+    displayDataMedias(medias);
+    displayDataPhotographer(photographer);
 };
 
 init(idPhotographer);
