@@ -5,7 +5,7 @@ function mediaFactory(data) {
     function getMediaCardDOM() {
         var html = `<article>`;
         if (image) {
-            html += `<img class='media-image' src="${picture}"/>`;
+            html += `<img class='media-image' src="${picture}" onclick="openLightBox(this)"/>`;
         } else {
             html += `<video class='media-image' controls><source src="${film}"></video>`;
         }
@@ -18,6 +18,18 @@ function mediaFactory(data) {
             </article>`;
         return (html);
     }
+    function getMediaLightBox() {
+        var html = `<div class='lightBox-image'>`;
+        if (image) {
+            html += `<img class='media-lightBox' src="${picture}"/>`;
+        } else {
+            html += `<video class='media-lightBox' controls><source src="${film}"></video>`;
+        }
+        html += `<h2>${title}</h2>
+        </div>`;
+        return (html);
 
-    return { getMediaCardDOM }
+    }
+
+    return { getMediaCardDOM, getMediaLightBox }
 }

@@ -33,19 +33,26 @@ function getSortBy(sortBy, datas) {
 //affiche des médias
 function displayDataMedias(medias) {
     const mediasSection = document.querySelector(".medias_section");
+    const LigthBoxContentSection = document.querySelector(".lightBox .content");
     const likeSection = document.querySelector(".total-like");
-    var html = '';
     var totalLike = 0;
+
+    var html = '';
+    var htmlLightBox = '';
     medias.forEach((media) => {
         const mediaModel = mediaFactory(media);
         const mediaCardDOM = mediaModel.getMediaCardDOM();
 
         html += mediaCardDOM;
         totalLike += media.likes;
+
+        const lightBoxContent = mediaModel.getMediaLightBox();
+        htmlLightBox += lightBoxContent;
     });
 
     mediasSection.innerHTML = html;
     likeSection.innerHTML = totalLike;
+    LigthBoxContentSection.innerHTML = htmlLightBox;
 
 }
 

@@ -35,3 +35,32 @@
 //     });
 //   }
 // } 
+const lightBox = document.querySelector('.lightBox');
+const lightBoxContent = document.querySelectorAll('.lightBox-image .media-lightBox')
+console.log(lightBoxContent);
+function openLightBox(media) {
+  lightBox.style.display = "block";
+  var src = media.getAttribute('src');
+  console.log("src media cliqué : " + src);
+  lightBoxContent.forEach(mediaLightBox => {
+    let srcMediaLightBox = mediaLightBox.getAttribute('src');
+    console.log("src medias : " + srcMediaLightBox);
+    if (srcMediaLightBox == src) {
+      let parentMediaLightBox = mediaLightBox.parentElement;
+      console.log("parent : " + parentMediaLightBox);
+      parentMediaLightBox.classList.add('show');
+    }
+  })
+}
+
+function closeLightBox() {
+  lightBox.style.display = "none";
+}
+
+function goToLeft() {
+
+}
+
+function goToRight() {
+
+}
