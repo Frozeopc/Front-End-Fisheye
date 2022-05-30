@@ -33,7 +33,7 @@ function getSortBy(sortBy, datas) {
 //affiche des médias
 function displayDataMedias(medias) {
     const mediasSection = document.querySelector(".medias_section");
-    const LigthBoxContentSection = document.querySelector(".lightBox .content");
+    const LigthBoxContentSection = document.querySelector(".lightBox .content .content-media");
     const likeSection = document.querySelector(".total-like");
     var totalLike = 0;
 

@@ -1,47 +1,10 @@
-// export default class Lightbox {
-//   constructor(medias, currentMedia) {
-//     this.element = document.getElementById('lightbox');
-//     this.content = document.getElementById('lightbox-content');
-//     this.next = this.next.bind(this);
-//     this.previous = this.previous.bind(this);
-//     this.close = this.close.bind(this);
-//     this.medias = medias;
-//     this.currentMedia = currentMedia;
-//     this.createMedias();
-//     this.element.classList.add('open');
-//     this.registerEvents();
-//   }
-
-//   createMedias() {
-//     this.content.innerHTML = '';
-
-//     this.medias.forEach((media) => {
-//       let mediaDom;
-//       const videoSrc = document.createElement('source');
-
-//       if (Object.prototype.hasOwnProperty.call(media, 'image')) {
-//         mediaDom = document.createElement('img');
-
-//       } else {
-//         mediaDom = document.createElement('video');
-
-//       }
-
-//       if (parseInt(media.id, 10) === parseInt(this.currentMedia, 10)) {
-//         mediaDom.classList.add('active');
-//       }
-
-//       this.content.appendChild(mediaDom);
-//     });
-//   }
-// } 
 const lightBox = document.querySelector('.lightBox');
-const lightBoxContent = document.querySelectorAll('.lightBox-image .media-lightBox')
-console.log(lightBoxContent);
+
 function openLightBox(media) {
   lightBox.style.display = "block";
   var src = media.getAttribute('src');
   console.log("src media cliqué : " + src);
+  let lightBoxContent = document.querySelectorAll('.media-lightBox')
   lightBoxContent.forEach(mediaLightBox => {
     let srcMediaLightBox = mediaLightBox.getAttribute('src');
     console.log("src medias : " + srcMediaLightBox);
@@ -55,12 +18,54 @@ function openLightBox(media) {
 
 function closeLightBox() {
   lightBox.style.display = "none";
+  let lightBoxImage = document.querySelectorAll('.lightBox-image');
+  lightBoxImage.forEach(media => {
+    if (media.classList.contains('show')) {
+      media.classList.remove('show');
+    }
+  })
 }
 
 function goToLeft() {
+  let lightBoxImage = document.querySelectorAll('.lightBox-image');
+  let length = lightBoxImage.length;
+  let currentIndex = 0;
+  let indexPrev = 0;
+  lightBoxImage.forEach((media, index) => {
+    if (media.classList.contains('show')) {
+      media.classList.remove('show');
+      currentIndex = index;
 
+    }
+  })
+  if (currentIndex === 0) {
+    indexPrev = length - 1;
+
+  } else {
+    indexPrev = currentIndex - 1;
+
+  }
+  lightBoxImage[indexPrev].classList.add('show')
 }
 
 function goToRight() {
+  let lightBoxImage = document.querySelectorAll('.lightBox-image');
+  let length = lightBoxImage.length;
+  let currentIndex = 0;
+  let indexNext = 0;
+  lightBoxImage.forEach((media, index) => {
+    if (media.classList.contains('show')) {
+      media.classList.remove('show');
+      currentIndex = index;
 
+    }
+  })
+  if (currentIndex === (length - 1)) {
+    indexNext = 0;
+
+  } else {
+    indexNext = currentIndex + 1;
+
+  }
+  lightBoxImage[indexNext].classList.add('show')
 }
