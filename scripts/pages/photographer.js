@@ -61,10 +61,10 @@ function displayDataPhotographer(photographer) {
 
     const photographerSection = document.querySelector(".photograph-header");
     const photographerModel = photographerFactory(photographer);
-    console.log(photographerModel);
+    const priceSection = document.querySelector(".price-photographer")
     const photographerCardDOM = photographerModel.getUserHeaderCardDOM();
-    console.log(photographerCardDOM);
     photographerSection.innerHTML += (photographerCardDOM);
+    priceSection.innerHTML = photographer.price + "€/jour";
 
 
 

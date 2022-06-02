@@ -9,7 +9,7 @@ function mediaFactory(data) {
         } else {
             html += `<video class='media-image' controls><source src="${film}"></video>`;
         }
-        html += `<h2>${title}</h2>
+        html += `<h3>${title}</h3>
                 <p class="nbLike">${likes}</p>
                 <span class="like-unlike unliked" onclick="likeUnlike(this)">
                     <i class="fa-regular fa-heart heart"></i>
@@ -25,7 +25,7 @@ function mediaFactory(data) {
         } else {
             html += `<video class='media-lightBox' controls><source src="${film}"></video>`;
         }
-        html += `<h2>${title}</h2>
+        html += `<h3>${title}</h3>
         </div>`;
         return (html);
 
