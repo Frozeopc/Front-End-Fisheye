@@ -15,11 +15,13 @@
 
 <body>
   <header>
-    <img src="assets/images/logo.png" class="logo" />
+    <a href="index.html">
+      <img src="assets/images/logo.png" class="logo" />
+    </a>
   </header>
   <main id="main">
     <div class="photograph-header">
-      <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
+
     </div>
     <section class="section-sort">
       <div class="container-sort">
@@ -36,7 +38,6 @@
       </div>
     </section>
     <div class="medias_section"></div>
-
     <div class="infos-photographer-bottom">
       <div class="total-like-section">
         <p class="total-like"></p>
@@ -46,8 +47,9 @@
     </div>
   </main>
   <div class="lightBox">
-    <div class="close"><img src="assets/icons/close.svg" alt="" onclick="closeLightBox()"></div>
+
     <div class="content">
+      <div class="close"><img src="assets/icons/close.svg" alt="" onclick="closeLightBox()"></div>
       <div class="content-media"></div>
       <div class="leftArrow" onclick="goToLeft()"><i class="fa-solid fa-angle-left"></i></div>
       <div class="rightArrow" onclick="goToRight()"><i class="fa-solid fa-angle-right"></i></div>
@@ -85,9 +87,9 @@
   <script src="scripts/pages/photographer.js"></script>
   <script src="scripts/factories/photographer.js"></script>
   <script src="scripts/factories/media.js"></script>
-  <script src="/scripts/utils/contactForm.js"></script>
-  <script src="/scripts/utils/likes.js"></script>
-  <script src="/scripts/utils/lightbox.js"></script>
+  <script src="scripts/utils/contactForm.js"></script>
+  <script src="scripts/utils/likes.js"></script>
+  <script src="scripts/utils/lightbox.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/js/all.min.js"
     integrity="sha512-6PM0qYu5KExuNcKt5bURAoT6KCThUmHRewN3zUFNaoI6Di7XJPTMoT6K0nsagZKk2OB4L7E3q1uQKHNHd4stIQ=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>

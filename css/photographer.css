@@ -3,8 +3,9 @@
 
 }
 
-h2 {
+h1 {
     color: #d3573c;
+    font-size: 50px;
 }
 
 h3 {
@@ -18,17 +19,22 @@ h3 {
 .photograph-header {
     background-color: #FAFAFA;
     margin: 0 10%;
-    display: grid;
-    justify-content: space-evenly;
-    grid-template-columns: 30% 30% 30%;
-    align-items: center;
     padding: 5%;
     margin-bottom: 30px;
+
+}
+
+.photograph-header article {
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .photographer-image {
     height: 200px;
     border-radius: 50%;
+    width: 200px;
 }
 
 @media only screen and (max-width: 600px) {
@@ -76,22 +82,21 @@ h3 {
     justify-self: center;
 }
 
-.section-sort {
+.container-sort {
     display: flex;
+    width: auto;
+    font-weight: bold;
+    align-items: center;
+}
+
+.section-sort {
     margin-left: 10%;
     margin-bottom: 20px;
 }
 
 .select-sort {
-    background: #901C1C;
-    color: white;
-    border-radius: 5%;
-    padding: 2px 2px;
-    display: flex;
-    margin-left: 2%;
-    flex-direction: row;
-    align-items: center;
-    padding-right: 10px;
+    margin-left: 20px;
+
 }
 
 .select-sort :hover {
@@ -154,7 +159,7 @@ h3 {
     flex-flow: wrap;
     justify-content: space-between;
     align-items: center;
-
+    margin: 0 10%;
 }
 
 
@@ -226,14 +231,27 @@ form input {
 .fa-heart {
     height: 20px;
     color: #901C1C;
+    margin-left: 5px;
 }
 
 .heartFull {
     display: none;
 }
 
+.infos-media {
+    justify-content: space-between;
+    display: flex;
+
+}
+
+.infos-media div {
+    display: flex;
+    align-items: center;
+}
+
 .nbLike {
     color: #901C1C;
+
 }
 
 /* lightbox */
@@ -267,15 +285,10 @@ form input {
 
 .lightBox .close {
     position: absolute;
-    right: 20px;
+    right: 30px;
     top: 20px;
-    background: #901C1C;
-    height: 20px;
-    width: 20px;
-    border-radius: 15px;
-    text-align: center;
-    color: #901C1C;
     cursor: pointer;
+
 }
 
 .lightBox-image {
@@ -294,6 +307,7 @@ form input {
 
 .media-lightBox {
     height: 90%;
+    max-width: 90%;
 }
 
 .leftArrow,

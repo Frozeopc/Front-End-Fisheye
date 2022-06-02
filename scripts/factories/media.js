@@ -9,12 +9,16 @@ function mediaFactory(data) {
         } else {
             html += `<video class='media-image' controls><source src="${film}"></video>`;
         }
-        html += `<h3>${title}</h3>
-                <p class="nbLike">${likes}</p>
-                <span class="like-unlike unliked" onclick="likeUnlike(this)">
-                    <i class="fa-regular fa-heart heart"></i>
-                    <i class="fa-solid fa-heart heartFull"></i>
-                </span>
+        html += `<div class="infos-media">
+                    <h3>${title}</h3>
+                    <div>
+                        <p class="nbLike">${likes}</p>
+                        <span class="like-unlike unliked" onclick="likeUnlike(this)">
+                            <i class="fa-regular fa-heart heart"></i>
+                            <i class="fa-solid fa-heart heartFull"></i>
+                        </span>
+                    </div>
+                </div>
             </article>`;
         return (html);
     }

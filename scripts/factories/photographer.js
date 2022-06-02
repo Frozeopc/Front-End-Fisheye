@@ -1,14 +1,14 @@
 function photographerFactory(data) {
-    const { name, portrait, price, city, country, id, tagline  } = data;
+    const { name, portrait, price, city, country, id, tagline } = data;
     const picture = `assets/photographers/Photographers/${portrait}`;
 
     function getUserCardDOM() {
-        const article = document.createElement( 'article' );
+        const article = document.createElement('article');
         const link = document.createElement('a');
-        link.setAttribute('href', 'photographer.html?id='+id);
-        const img = document.createElement( 'img' );
+        link.setAttribute('href', 'photographer.html?id=' + id);
+        const img = document.createElement('img');
         img.setAttribute("src", picture);
-        const h2 = document.createElement( 'h2' );
+        const h2 = document.createElement('h2');
         const citycountry = document.createElement('p');
         const hookline = document.createElement('p');
         const prize = document.createElement('p');
@@ -27,16 +27,18 @@ function photographerFactory(data) {
         article.appendChild(prize);
         return (article);
     }
-    function getUserHeaderCardDOM(){
+    function getUserHeaderCardDOM() {
         const html = `<article>
+                <div>
+                 <h1>${name}</h1>
+                 <p class="location">${city + ', ' + country}</p>
+                 <p class="tagline">${tagline}</p>
+                </div>
+                <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
                 <img class="photographer-image" src="${picture}">
-                <h2>${name}</h2>
-                <p class="location">${city}</p>
-                <p class="tagline">${tagline}</p>
-                <p class="price">${price}/jour</p>
              </article>
         `;
-            
+
         return (html);
 
     }

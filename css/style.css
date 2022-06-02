@@ -45,6 +45,11 @@ h2 {
     width: 30%;
     margin-top: 5%;
     margin-bottom: 5%;
+    text-align: center;
+}
+
+.photographer_section article a {
+    text-decoration: none;
 }
 
 .photographer_section article h2 {
