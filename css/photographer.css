@@ -22,6 +22,7 @@ h3 {
     padding: 5%;
     margin-bottom: 30px;
 
+
 }
 
 .photograph-header article {
@@ -36,37 +37,6 @@ h3 {
     border-radius: 50%;
     width: 200px;
 }
-
-@media only screen and (max-width: 600px) {
-    .medias_section {
-        flex-direction: column;
-    }
-
-    article {
-        min-width: 100%;
-    }
-
-    .photograph-header {
-        display: flex;
-        justify-content: space-evenly;
-        flex-direction: column;
-    }
-}
-
-@media only screen and (max-width: 992px) and (min-width : 600px) {
-
-    article {
-        min-width: 45%;
-    }
-
-    .photograph-header {
-        display: flex;
-        justify-content: space-evenly;
-        flex-direction: column;
-    }
-}
-
-
 
 .contact_button {
     font-size: 20px;
@@ -103,15 +73,41 @@ h3 {
     cursor: pointer;
 }
 
+#sort {
+    background-color: #901C1C;
+    color: #ffffff;
+    font-family: "DM Sans", sans-serif;
+    width: 125px;
+    height: 35px;
+    border-radius: 5px;
+    font-size: ;
+}
+
+#sort option {
+    height: 35px;
+    border-bottom: 2px solid white;
+}
+
 
 /* css des images  */
+
+.medias_section {
+    margin-top: 100px;
+    display: flex;
+    flex-flow: wrap;
+    justify-content: center;
+    align-items: center;
+    margin: 0 10%;
+}
+
 
 .medias_section article {
     width: 30%;
     display: flex;
     flex-direction: column;
-}
+    margin: 5px 25px;
 
+}
 
 .media-image {
     width: 100%;
@@ -153,17 +149,6 @@ h3 {
     text-align: center;
 }
 
-.medias_section {
-    margin-top: 100px;
-    display: flex;
-    flex-flow: wrap;
-    justify-content: space-between;
-    align-items: center;
-    margin: 0 10%;
-}
-
-
-
 form {
     display: flex;
     width: 100%;
@@ -189,6 +174,7 @@ form input {
     height: 68px;
     border: none;
     border-radius: 5px;
+    font-size: 30px;
 }
 
 .modal-textarea {
@@ -314,9 +300,14 @@ form input {
 .rightArrow {
     position: absolute;
     top: 50%;
-    height: 50px;
     cursor: pointer;
     color: #901C1C;
+}
+
+.fa-angle-left,
+.fa-angle-right {
+    height: 42px;
+    width: 42px;
 }
 
 .leftArrow {
@@ -325,4 +316,33 @@ form input {
 
 .rightArrow {
     right: 40px;
+}
+
+@media only screen and (max-width: 600px) {
+    .medias_section {
+        flex-direction: column;
+    }
+
+    article {
+        min-width: 100%;
+    }
+
+    .photograph-header {
+        display: flex;
+        justify-content: space-evenly;
+        flex-direction: column;
+    }
+}
+
+@media only screen and (max-width: 992px) and (min-width : 600px) {
+
+    article {
+        min-width: 45%;
+    }
+
+    .photograph-header {
+        display: flex;
+        justify-content: space-evenly;
+        flex-direction: column;
+    }
 }
