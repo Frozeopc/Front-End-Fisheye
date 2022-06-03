@@ -26,7 +26,7 @@ h3 {
 }
 
 .photograph-header article {
-
+    flex-wrap: wrap;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -80,7 +80,7 @@ h3 {
     width: 125px;
     height: 35px;
     border-radius: 5px;
-    font-size: ;
+
 }
 
 #sort option {
@@ -321,28 +321,30 @@ form input {
 @media only screen and (max-width: 600px) {
     .medias_section {
         flex-direction: column;
+        margin: 0px;
     }
 
-    article {
-        min-width: 100%;
+    .medias_section article {
+        width: 70%;
+
     }
 
-    .photograph-header {
-        display: flex;
-        justify-content: space-evenly;
-        flex-direction: column;
+    .media-image {
+        height: 420px;
     }
+
+
 }
 
 @media only screen and (max-width: 992px) and (min-width : 600px) {
 
-    article {
-        min-width: 45%;
+    .photograph-header article {
+        flex-direction: column-reverse;
     }
 
-    .photograph-header {
-        display: flex;
-        justify-content: space-evenly;
-        flex-direction: column;
+    .medias_section article {
+        width: 40%;
+
     }
+
 }
