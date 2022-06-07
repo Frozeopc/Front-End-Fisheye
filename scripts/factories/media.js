@@ -5,15 +5,15 @@ function mediaFactory(data) {
     function getMediaCardDOM() {
         var html = `<article>`;
         if (image) {
-            html += `<img class='media-image' src="${picture}" onclick="openLightBox(this)"/>`;
+            html += `<img class='media-image' src="${picture}" tabindex="0" onclick="openLightBox(this)" onkeypress="openLightBox(this,event)"/>`;
         } else {
-            html += `<video class='media-image' controls><source src="${film}"></video>`;
+            html += `<video class='media-image' controls="hidden"><source src="${film}" onclick="openLightBox(this)"></video>`;
         }
         html += `<div class="infos-media">
                     <h3>${title}</h3>
                     <div>
                         <p class="nbLike">${likes}</p>
-                        <span class="like-unlike unliked" onclick="likeUnlike(this)">
+                        <span class="like-unlike unliked" onclick="likeUnlike(this)" onkeypress="likeUnlike(this,event)" tabindex="0">
                             <i class="fa-regular fa-heart heart"></i>
                             <i class="fa-solid fa-heart heartFull"></i>
                         </span>

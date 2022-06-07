@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 
 <head>
   <link href="css/style.css" rel="stylesheet" type="text/css" />
@@ -15,13 +15,12 @@
 
 <body>
   <header>
-    <a href="index.html">
-      <img src="assets/images/logo.png" class="logo" />
+    <a href="index.html" tabindex="0">
+      <img src="assets/images/logo.png" alt="menu principal" class="logo" />
     </a>
   </header>
   <main id="main">
     <div class="photograph-header">
-
     </div>
     <section class="section-sort">
       <div class="container-sort">
@@ -29,9 +28,9 @@
         <div class="select-sort">
           <label>
             <select id="sort">
-              <option value="likes">Popularité</option>
-              <option value="date">Date</option>
-              <option value="title">Titre</option>
+              <option value="likes" tabindex="-1">Popularité</option>
+              <option value="date" tabindex="-1">Date</option>
+              <option value="title" tabindex="-1">Titre</option>
             </select>
           </label>
         </div>
@@ -41,45 +40,51 @@
     <div class="infos-photographer-bottom">
       <div class="total-like-section">
         <p class="total-like"></p>
-        <i class="fa-solid fa-heart "></i>
+        <i class="fa-solid fa-heart"></i>
       </div>
       <p class="price-photographer"></p>
     </div>
   </main>
   <div class="lightBox">
-
     <div class="content">
-      <div class="close"><img src="assets/icons/close.svg" alt="" onclick="closeLightBox()"></div>
+      <div class="close" tabindex="0"><img src="assets/icons/close.svg" alt="fermeture du formulaire"
+          onclick="closeLightBox()">
+      </div>
       <div class="content-media"></div>
-      <div class="leftArrow" onclick="goToLeft()"><i class="fa-solid fa-angle-left"></i></div>
-      <div class="rightArrow" onclick="goToRight()"><i class="fa-solid fa-angle-right"></i></div>
+      <div class="leftArrow" tabindex="0" onclick="goToLeft()" onkeydown="goToLeft(event)"><i
+          class="fa-solid fa-angle-left"></i>
+      </div>
+      <div class="rightArrow" tabindex="0" onclick="goToRight()" onkeydown="goToRight(event)"><i
+          class="fa-solid fa-angle-right"></i></div>
     </div>
 
   </div>
   <div id="contact_modal">
-    <div class="modal">
+    <div class="modal" role="button" aria-label="Contacter le photographe">
       <header>
-        <h2>Contactez-moi</h2>
-        <img src="assets/icons/close.svg" onclick="closeModal()" />
+        <h2 tabindex="0">Contactez-moi</h2>
+        <img src="assets/icons/close.svg" onclick="closeModal()" tabindex="1"
+          alt="Bouton croix pour fermer la modale" />
       </header>
       <form>
         <div>
-          <label for="prenom">Prénom</label>
+          <label text="prenom" for="prenom" tabindex="-1" autofocus>Prénom</label>
           <input id="prenom" type="text" name="prenom" />
         </div>
         <div>
-          <label for="nom">Nom</label>
+          <label text="nom" for="nom" tabindex="-1">Nom</label>
           <input id="Nom" type="text" name="nom" />
         </div>
         <div>
-          <label for="mail">Email</label>
+          <label for="mail" tabindex="-1">Email</label>
           <input id="mail" type="mail" name="mail" />
         </div>
         <div>
-          <label for="message">Message</label>
-          <textarea id="message" name="message" class="modal-textarea" cols="30" rows="10"></textarea>
+          <label for="message" tabindex="-1">Message</label>
+          <textarea id="message" name="message" class="modal-textarea" tabindex="" cols="30" rows="10"></textarea>
         </div>
-        <button id="contact_button" class="contact_button">Envoyer</button>
+        <button id="contact_button" class="contact_button" tabindex="0"
+          aria-label="Envoyer le formulaire">Envoyer</button>
       </form>
     </div>
   </div>
