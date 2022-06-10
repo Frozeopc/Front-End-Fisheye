@@ -5,15 +5,15 @@ function mediaFactory(data) {
     function getMediaCardDOM() {
         var html = `<article>`;
         if (image) {
-            html += `<img class='media-image' src="${picture}" tabindex="0" onclick="openLightBox(this)" onkeypress="openLightBox(this,event)"/>`;
+            html += `<img class='media-image' alt="${title}"  src="${picture}" tabindex="0" onclick="openLightBox(this)" onkeypress="openLightBox(this,event)"/>`;
         } else {
-            html += `<video class='media-image' controls="hidden"><source src="${film}" onclick="openLightBox(this)"></video>`;
+            html += `<video class='media-image' alt="${title}" controls="hidden"><source src="${film}" onclick="openLightBox(this)"></video>`;
         }
         html += `<div class="infos-media">
                     <h3>${title}</h3>
                     <div>
                         <p class="nbLike">${likes}</p>
-                        <span class="like-unlike unliked" onclick="likeUnlike(this)" onkeypress="likeUnlike(this,event)" tabindex="0">
+                        <span class="like-unlike unliked" onclick="likeUnlike(this)" onkeypress="likeUnlike(this,event)" tabindex="0" alt="aimer la photo">
                             <i class="fa-regular fa-heart heart"></i>
                             <i class="fa-solid fa-heart heartFull"></i>
                         </span>
@@ -25,9 +25,9 @@ function mediaFactory(data) {
     function getMediaLightBox() {
         var html = `<div class='lightBox-image'>`;
         if (image) {
-            html += `<img class='media-lightBox' src="${picture}"/>`;
+            html += `<img class='media-lightBox' alt="${title}" src="${picture}"/>`;
         } else {
-            html += `<video class='media-lightBox' controls><source src="${film}"></video>`;
+            html += `<video class='media-lightBox' alt="${title}" controls><source src="${film}"></video>`;
         }
         html += `<h3>${title}</h3>
         </div>`;

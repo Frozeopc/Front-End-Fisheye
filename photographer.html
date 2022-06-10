@@ -25,7 +25,7 @@
     <section class="section-sort">
       <div class="container-sort">
         <span>Trier par</span>
-        <div class="select-sort">
+        <div class="select-sort" tabindex="0">
           <label>
             <select id="sort">
               <option value="likes" tabindex="-1">Popularité</option>
@@ -47,8 +47,8 @@
   </main>
   <div class="lightBox">
     <div class="content">
-      <div class="close" tabindex="0"><img src="assets/icons/close.svg" alt="fermeture du formulaire"
-          onclick="closeLightBox()">
+      <div class="close" tabindex="0" onkeypress="closeLightBox(event)"><img src="assets/icons/close.svg"
+          alt="fermeture du formulaire" onclick="closeLightBox()">
       </div>
       <div class="content-media"></div>
       <div class="leftArrow" tabindex="0" onclick="goToLeft()" onkeydown="goToLeft(event)"><i
@@ -60,28 +60,28 @@
 
   </div>
   <div id="contact_modal">
-    <div class="modal" role="button" aria-label="Contacter le photographe">
+    <div class="modal" aria-label="Contacter le photographe">
       <header>
         <h2 tabindex="0">Contactez-moi</h2>
         <img src="assets/icons/close.svg" onclick="closeModal()" tabindex="1"
-          alt="Bouton croix pour fermer la modale" />
+          alt="Bouton croix pour fermer la pop up" />
       </header>
       <form>
         <div>
-          <label text="prenom" for="prenom" tabindex="-1" autofocus>Prénom</label>
+          <label for="prenom" tabindex="0" autofocus>Prénom</label>
           <input id="prenom" type="text" name="prenom" />
         </div>
         <div>
-          <label text="nom" for="nom" tabindex="-1">Nom</label>
-          <input id="Nom" type="text" name="nom" />
+          <label for="nom" tabindex="0">Nom</label>
+          <input id="nom" type="text" name="nom" />
         </div>
         <div>
-          <label for="mail" tabindex="-1">Email</label>
-          <input id="mail" type="mail" name="mail" />
+          <label for="mail" tabindex="0">Email</label>
+          <input id="mail" type="email" name="mail" />
         </div>
         <div>
-          <label for="message" tabindex="-1">Message</label>
-          <textarea id="message" name="message" class="modal-textarea" tabindex="" cols="30" rows="10"></textarea>
+          <label for="message" tabindex="0">Message</label>
+          <textarea id="message" name="message" class="modal-textarea" cols="30" rows="10"></textarea>
         </div>
         <button id="contact_button" class="contact_button" tabindex="0"
           aria-label="Envoyer le formulaire">Envoyer</button>

@@ -35,7 +35,7 @@ function photographerFactory(data) {
                  <p class="tagline">${tagline}</p>
                 </div>
                 <button class="contact_button" tabindex="0" onclick="displayModal()">Contactez-moi</button>
-                <img class="photographer-image" src="${picture}">
+                <img class="photographer-image" src="${picture}" alt="${name}" >
              </article>
         `;
 

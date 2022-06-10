@@ -18,16 +18,17 @@ function openLightBox(media, event) {
   }
 }
 
-function closeLightBox() {
-  lightBox.style.display = "none";
-  let lightBoxImage = document.querySelectorAll('.lightBox-image');
-  lightBoxImage.forEach(media => {
-    if (media.classList.contains('show')) {
-      media.classList.remove('show');
-    }
-  })
+function closeLightBox(event) {
+  if ((event && event.keyCode === 13) || !event) {
+    lightBox.style.display = "none";
+    let lightBoxImage = document.querySelectorAll('.lightBox-image');
+    lightBoxImage.forEach(media => {
+      if (media.classList.contains('show')) {
+        media.classList.remove('show');
+      }
+    })
+  }
 }
-
 function goToLeft(event) {
   if ((event && (event.keyCode === 37 || event.keyCode === 13)) || !event) {
     let lightBoxImage = document.querySelectorAll('.lightBox-image');
@@ -75,7 +76,7 @@ function goToRight(event) {
   }
 }
 document.addEventListener('keydown', function (event) {
-  event.preventDefault();
+
   if (event.key == "ArrowLeft") {
     goToLeft(event)
   }
