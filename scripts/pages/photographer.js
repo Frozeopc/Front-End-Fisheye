@@ -1,14 +1,15 @@
-//Mettre le code JavaScript lié à la page photographer.html
+
 const urlParam = new URLSearchParams(window.location.search);
 const idPhotographer = urlParam.get('id');
 const selector = document.getElementById('sort');
 
-
+// trie des photos
 selector.addEventListener('change', async function () {
     const medias = await getMediasByPhotographer(idPhotographer, this.value)
     displayDataMedias(medias)
 })
 
+// trie des données en fonction du selecteur
 function getSortBy(sortBy, datas) {
     switch (sortBy) {
         case 'date':
@@ -30,7 +31,7 @@ function getSortBy(sortBy, datas) {
 
 
 
-//affiche des médias
+//affiche des médias et création de la lightbox
 function displayDataMedias(medias) {
     const mediasSection = document.querySelector(".medias_section");
     const LigthBoxContentSection = document.querySelector(".lightBox .content .content-media");

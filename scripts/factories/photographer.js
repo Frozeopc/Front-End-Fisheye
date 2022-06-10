@@ -1,7 +1,10 @@
+// objet photgraphe
+
 function photographerFactory(data) {
     const { name, portrait, price, city, country, id, tagline } = data;
     const picture = `assets/photographers/Photographers/${portrait}`;
 
+    // création html d'un photgraphe pour la page d'acceuil
     function getUserCardDOM() {
         const article = document.createElement('article');
         const link = document.createElement('a');
@@ -27,6 +30,8 @@ function photographerFactory(data) {
         article.appendChild(prize);
         return (article);
     }
+
+    // création html d'un photographe pour la page photographer
     function getUserHeaderCardDOM() {
         const html = `<article>
                 <div>

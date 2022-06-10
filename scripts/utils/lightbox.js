@@ -1,5 +1,6 @@
 const lightBox = document.querySelector('.lightBox');
 
+// fonction ouverture de la lightbox 
 function openLightBox(media, event) {
   if ((event && event.keyCode === 13) || !event) {
     lightBox.style.display = "block";
@@ -18,8 +19,9 @@ function openLightBox(media, event) {
   }
 }
 
+// fonction fermeutre de la lighbox
 function closeLightBox(event) {
-  if ((event && event.keyCode === 13) || !event) {
+  if ((event && (event.keyCode === 13 || event.keyCode === 27)) || !event) {
     lightBox.style.display = "none";
     let lightBoxImage = document.querySelectorAll('.lightBox-image');
     lightBoxImage.forEach(media => {
@@ -29,6 +31,8 @@ function closeLightBox(event) {
     })
   }
 }
+
+// défilement a gauche des médias
 function goToLeft(event) {
   if ((event && (event.keyCode === 37 || event.keyCode === 13)) || !event) {
     let lightBoxImage = document.querySelectorAll('.lightBox-image');
@@ -52,6 +56,8 @@ function goToLeft(event) {
     lightBoxImage[indexPrev].classList.add('show')
   }
 }
+
+// défilement a droite des médias
 function goToRight(event) {
   if ((event && (event.keyCode === 39 || event.keyCode === 13)) || !event) {
     let lightBoxImage = document.querySelectorAll('.lightBox-image');
@@ -75,6 +81,8 @@ function goToRight(event) {
     lightBoxImage[indexNext].classList.add('show')
   }
 }
+
+// utilisation des flèches pour la navigation de lightbox et boutton echap
 document.addEventListener('keydown', function (event) {
 
   if (event.key == "ArrowLeft") {
@@ -82,5 +90,8 @@ document.addEventListener('keydown', function (event) {
   }
   if (event.key == "ArrowRight") {
     goToRight(event)
+  }
+  if (event.key == "Escape") {
+    closeLightBox(event)
   }
 })

@@ -1,7 +1,11 @@
+// objet média
+
 function mediaFactory(data) {
     const { id, photographerId, title, image, video, likes, date, price } = data;
     const picture = `assets/photographers/${photographerId}/${image}`;
     const film = `assets/photographers/${photographerId}/${video}`;
+
+    // création html d'un média pour la page photographer 
     function getMediaCardDOM() {
         var html = `<article>`;
         if (image) {
@@ -22,6 +26,8 @@ function mediaFactory(data) {
             </article>`;
         return (html);
     }
+
+    // création d'un média html pour la lightbox
     function getMediaLightBox() {
         var html = `<div class='lightBox-image'>`;
         if (image) {

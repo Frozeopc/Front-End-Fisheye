@@ -1,3 +1,4 @@
+// récupération de tous les photographes
 async function getPhotographers() {
     const response = await fetch('data/photographers.json');
     const data = await response.json();
@@ -6,6 +7,7 @@ async function getPhotographers() {
     return photographers;
 }
 
+// récupération des médias en fonction de l'ID du photographes et tri en fonction du selecteur
 async function getMediasByPhotographer(idPhotographer, sortBy) {
     const response = await fetch('data/photographers.json');
     const data = await response.json();
@@ -17,6 +19,8 @@ async function getMediasByPhotographer(idPhotographer, sortBy) {
     console.log(listMedias);
     return listMediasSort;
 }
+
+// récupération d'un photgraphe en fonction de l'ID
 async function getPhotographerById(idPhotographer) {
     const response = await fetch('data/photographers.json');
     const data = await response.json();
