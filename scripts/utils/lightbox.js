@@ -19,7 +19,7 @@ function openLightBox(media, event) {
   }
 }
 
-// fonction fermeutre de la lighbox
+// fonction fermeture de la lighbox/ajout keycode pour boutton echap
 function closeLightBox(event) {
   if ((event && (event.keyCode === 13 || event.keyCode === 27)) || !event) {
     lightBox.style.display = "none";
